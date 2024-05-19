@@ -3,6 +3,8 @@
   "displayName": "ehong-dev",
   "description": "",
   "version": "0.0.1",
+  "publisher": "maxu",
+  "repository": "https://github.com/imxood/ehong-dev",
   "engines": {
     "vscode": "^1.89.0"
   },
