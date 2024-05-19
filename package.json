@@ -1,0 +1,67 @@
+{
+  "name": "ehong-dev",
+  "displayName": "ehong-dev",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.89.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "workspaceContains:ehong.json"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": [
+      {
+        "title": "Ehong Keil plugin",
+        "properties": {
+          "ehong-dev.Uv4Path": {
+            "type": "string",
+            "scope": "machine",
+            "markdownDescription": "MDK UV4.exe path",
+            "default": "C:/Keil_v5/UV4/UV4.exe"
+          }
+        }
+      }
+    ],
+    "commands": [
+      {
+        "command": "ehong-dev.project.build",
+        "title": "ehong project build"
+      },
+      {
+        "command": "ehong-dev.project.rebuild",
+        "title": "ehong project rebuild"
+      },
+      {
+        "command": "ehong-dev.project.clean",
+        "title": "ehong project clean"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "yarn run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "yarn run compile && yarn run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.89.0",
+    "@types/xml2js": "^0.4.14",
+    "@typescript-eslint/eslint-plugin": "^7.7.1",
+    "@typescript-eslint/parser": "^7.7.1",
+    "@vscode/test-cli": "^0.0.9",
+    "@vscode/test-electron": "^2.3.9",
+    "eslint": "^8.57.0",
+    "json5": "^2.2.3",
+    "typescript": "^5.4.5",
+    "xml2js": "^0.6.2"
+  }
+}
