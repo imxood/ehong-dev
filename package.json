@@ -6,19 +6,19 @@
   "publisher": "maxu",
   "repository": "https://github.com/imxood/ehong-dev",
   "engines": {
-    "vscode": "^1.89.0"
+    "vscode": "^1.79.0"
   },
   "categories": [
     "Other"
   ],
   "activationEvents": [
-    "workspaceContains:ehong.json"
+    "*"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "configuration": [
       {
-        "title": "Ehong Keil plugin",
+        "title": "Ehong Dev plugin",
         "properties": {
           "ehong-dev.Uv4Path": {
             "type": "string",
