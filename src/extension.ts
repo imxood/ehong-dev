@@ -38,7 +38,7 @@ export function activate(context: vscode.ExtensionContext) {
         let workspace = vscode.workspace.getWorkspaceFolder(event.uri);
         if (workspace) {
           let work_dir = path.resolve(event.uri.fsPath, "..");
-          if (project.work_dir == work_dir) {
+          if (project.work_dir === work_dir) {
             // 重新加载
             project.load(work_dir);
           }
@@ -106,7 +106,7 @@ function communicateWithExternalProcess(
       s = s.slice("TargetName: ".length);
       var v = s.indexOf("\r\n");
       var v = s.indexOf("\r\n");
-      if (v != -1) {
+      if (v !== -1) {
         s = s.slice(0, v);
       }
 

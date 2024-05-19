@@ -48,9 +48,9 @@ export default class KeilProject extends EventEmitter {
     // 解析 ehong.json 文件中的 project字段
     if (fs.existsSync(ehong_config)) {
       let data = JSON5.parse(fs.readFileSync(ehong_config, "utf-8"));
-      if (typeof data == "object") {
+      if (typeof data === "object") {
         let project = data["project"];
-        if (typeof project == "string") {
+        if (typeof project === "string") {
           this.project = data["project"] as string;
         }
       }
@@ -141,11 +141,11 @@ export default class KeilProject extends EventEmitter {
     }
 
     let type = "";
-    if (run_name == "build") {
+    if (run_name === "build") {
       type = "b";
-    } else if (run_name == "rebuild") {
+    } else if (run_name === "rebuild") {
       type = "r";
-    } else if (run_name == "clean") {
+    } else if (run_name === "clean") {
       type = "c";
     } else {
       vscode.window.showErrorMessage(

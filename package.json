@@ -2,17 +2,17 @@
   "name": "ehong-dev",
   "displayName": "ehong-dev",
   "description": "",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "maxu",
   "repository": "https://github.com/imxood/ehong-dev",
   "engines": {
-    "vscode": "^1.89.0"
+    "vscode": "^1.79.0"
   },
   "categories": [
     "Other"
   ],
   "activationEvents": [
-    "*"
+    "workspaceContains:ehong.json"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -55,15 +55,17 @@
   "devDependencies": {
     "@types/mocha": "^10.0.6",
     "@types/node": "18.x",
-    "@types/vscode": "^1.89.0",
-    "@types/xml2js": "^0.4.14",
+    "@types/vscode": "^1.79.0",
     "@typescript-eslint/eslint-plugin": "^7.7.1",
     "@typescript-eslint/parser": "^7.7.1",
     "@vscode/test-cli": "^0.0.9",
     "@vscode/test-electron": "^2.3.9",
     "eslint": "^8.57.0",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
     "json5": "^2.2.3",
-    "typescript": "^5.4.5",
-    "xml2js": "^0.6.2"
+    "xml2js": "^0.6.2",
+    "@types/xml2js": "^0.4.14"
   }
 }
