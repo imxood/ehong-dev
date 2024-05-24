@@ -6,6 +6,7 @@ import * as vscode from "vscode";
 import * as xml2js from "xml2js";
 import { exec } from "child_process";
 import JSON5 from "json5";
+import dayjs from "dayjs";
 
 export default class KeilProject extends EventEmitter {
   project: string = "";
@@ -114,6 +115,9 @@ export default class KeilProject extends EventEmitter {
           2
         )
       );
+
+      var now = dayjs().format("YYYY-MM-DD HH:mm:ss");
+      this.channel.appendLine(`${now} c/c++ 配置已更新`);
     }
   }
 
@@ -173,7 +177,7 @@ export default class KeilProject extends EventEmitter {
 
     let dots = 0;
     const timer = setInterval(() => {
-      let text = `$: ${run_name} target  ${
+      let text = `$: ${run_name} target ${
         this.target_name
       }\n${init_text}\n${fs.readFileSync(this.logPath, "utf-8")}`;
 

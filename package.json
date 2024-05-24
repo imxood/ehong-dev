@@ -2,7 +2,7 @@
   "name": "ehong-dev",
   "displayName": "ehong-dev",
   "description": "",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "maxu",
   "repository": "https://github.com/imxood/ehong-dev",
   "engines": {
@@ -60,12 +60,13 @@
     "@typescript-eslint/parser": "^7.7.1",
     "@vscode/test-cli": "^0.0.9",
     "@vscode/test-electron": "^2.3.9",
+    "dayjs": "^1.11.11",
     "eslint": "^8.57.0",
     "typescript": "^5.4.5"
   },
   "dependencies": {
+    "@types/xml2js": "^0.4.14",
     "json5": "^2.2.3",
-    "xml2js": "^0.6.2",
-    "@types/xml2js": "^0.4.14"
+    "xml2js": "^0.6.2"
   }
 }
