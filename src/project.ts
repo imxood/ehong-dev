@@ -13,6 +13,7 @@ export default class KeilProject extends EventEmitter {
   target_name: string = "";
   device: string = "";
   cpu: string = "";
+  output_name: string = "";
 
   work_dir: string = "";
   vscode_root: string = "";
@@ -72,6 +73,7 @@ export default class KeilProject extends EventEmitter {
       let target_common_option = targets["TargetOption"]["TargetCommonOption"];
       this.device = target_common_option["Device"];
       this.cpu = target_common_option["Cpu"];
+      this.output_name = target_common_option["OutputName"];
 
       let various_controls =
         targets["TargetOption"]["TargetArmAds"]["Cads"]["VariousControls"];
@@ -186,10 +188,22 @@ export default class KeilProject extends EventEmitter {
 
     return new Promise<void>((res) => {
       setTimeout(() => {
-        exec(command).once("exit", () => {
+        exec(command).once("exit", (code) => {
           setTimeout(() => clearInterval(timer), 100);
-          console.log("exe exited");
+          this.channel.appendLine(`\nexe exited, ${code}`);
+
           res();
+
+          if (code === 0 && this.output_name.length) {
+            var targetFile = `${this.output_name}.bin`;
+
+            var source = join(path.resolve(this.project, ".."), targetFile);
+            var target = join(this.vscode_root, targetFile);
+
+            if (fs.existsSync(source)) {
+              fs.copyFileSync(source, target);
+            }
+          }
         });
       }, 500);
     });
